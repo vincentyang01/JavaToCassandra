@@ -14,12 +14,11 @@ public class App
     public static void main( String[] args )
     {
     	org.apache.log4j.BasicConfigurator.configure();
-    	
-    	String serverIP = "cassandra.cassandra.svc";
+    	String serverIP = " cassandra.cassandra.svc";
     	String keyspace = "system";
-    	
+
     	Cluster cluster = Cluster.builder()
-    	  .addContactPoints()
+    	  .addContactPoints(serverIP)
     	  .build();
 
     	Session session = cluster.connect(keyspace);
